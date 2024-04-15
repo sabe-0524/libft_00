@@ -19,7 +19,9 @@ int ft_count(char const *s1, char const *set)
 
     len = ft_strlen(s1);
     i = 0;
-    while (s1[i + ft_strlen(set)] != 0)
+    // if (set[0] == 0)
+    //     return (ft_strlen(s1));
+    while (i + ft_strlen(set) <= ft_strlen(s1))
     {
         j = 0;
         while (set[j] != 0)
@@ -35,85 +37,57 @@ int ft_count(char const *s1, char const *set)
     return (len);
 }
 
-size_t ft_strlcat(char *restrict dest, const char *restrict src,
-						size_t size)
+char	*ft_strncat(char *dest, char const *src, unsigned int nb)
 {
-    int i;
-    int j;
+	unsigned int	i;
+	unsigned int	len;
 
-    j = ft_strlen(dest);
-    i = ft_strlen(dest) - 1;
-    if (j > size)
-        return (size + ft_strlen(src));
-    while (++i < size - 1 && *src != 0)
-    {
-        dest[i] = *src;
-        src++;
-    }
-    dest[i] = 0;
-    return (j + ft_strlen(src));
+	i = 0;
+	len = ft_strlen(dest);
+	while (src[i] != '\0' && i < nb)
+	{
+		dest[len + i] = src[i];
+		i++;
+	}
+	dest[len + i] = '\0';
+	return (dest);
 }
 
-// char    *ft_strtrim(char const *s1, char const *set)
-// {
-//     char    *ans;
-//     int     i;
-//     int     j;
-
-//     ans = malloc(sizeof(char) * (ft_count(s1, set) + 1));
-//     i = 0;
-//     while (s1[i] != 0)
-//     {
-//         j = 0;
-//         while (set[j] != 0 && s1[i + j] != 0)
-//         {
-//             if (s1[i + j] != set[j])
-//                 break ;
-//             j++;
-//         }
-//         if (set[j] != 0)
-//             ft_strlcat(ans, &s1[i], ft_strlen(ans) + j + 1);
-//         i += (j + 1);
-//     }
-//     return (ans);
-// }
-
-char *ft_strtrim(const char *s1, const char *set)
+char    *ft_strtrim(char const *s1, char const *set)
 {
-    char *ans;
-    int i;
-    int j;
-    int k;
+    char    *ans;
+    int     i;
+    int     j;
 
     ans = malloc(sizeof(char) * (ft_count(s1, set) + 1));
     if (!ans)
         return (NULL);
-    
+        ans[0] = 0;
     i = 0;
-    k = 0;
-    while (s1[i] != '\0')
+    while (s1[i] != 0)
     {
         j = 0;
-        while (set[j] != '\0' && s1[i + j] != '\0' && s1[i + j] == set[j])
-            j++;
-        if (set[j] == '\0') // No match found
+        while (set[j] != 0 && s1[i + j] != 0)
         {
-            ans[k++] = s1[i];
-            i++;
+            if (s1[i + j] != set[j])
+                break ;
+            j++;
+        }
+        if (set[j] != 0 || set[0] == 0)
+        {
+            ft_strncat(ans, &s1[i], j + 1);
+            i += (j + 1);
         }
         else
-        {
-            i += j + 1;
-        }
+            i += j;
     }
-    ans[k] = '\0';
+    ans[i] = 0;
     return (ans);
 }
 
-
 int main(void)
 {
-    char *s1 = "abc12defg12";
+    char *s1 = "aa12bb12";
     char *set = "12";
     char *ans = ft_strtrim(s1, set);
     printf("%s", ans);

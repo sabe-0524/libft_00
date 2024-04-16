@@ -1,14 +1,18 @@
-int ft_strlen(char *str)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 12:43:09 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/16 18:40:44 by sabe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    while (str[i] != 0)
-        i++;
-    return (i);
-}
+#include "libft.h"
 
-int ft_strlcat(char *dest, char *src, int size)
+size_t ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 {
     int i;
     int j;
@@ -26,14 +30,14 @@ int ft_strlcat(char *dest, char *src, int size)
     return (j + ft_strlen(src));
 }
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int main(void)
-{
-    char    dest[9] = "abcde";
-    char    *src = "fgh";
-    ft_strlcat(dest, src, 9);
-    printf("%s", dest);
-    return (0);
-}
+// int main(void)
+// {
+//     char    dest[9] = "abcde";
+//     char    *src = "fgh";
+//     ft_strlcat(dest, src, 9);
+//     printf("%s", dest);
+//     return (0);
+// }

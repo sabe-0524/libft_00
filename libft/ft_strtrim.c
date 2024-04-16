@@ -1,15 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 12:46:01 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/16 18:42:00 by sabe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-
-size_t ft_strlen(char const *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != 0)
-        i++;
-    return (i);
-}
 
 int ft_count(char const *s1, char const *set)
 {
@@ -85,12 +86,12 @@ char    *ft_strtrim(char const *s1, char const *set)
     return (ans);
 }
 
-int main(void)
-{
-    char *s1 = "aa12bb12";
-    char *set = "12";
-    char *ans = ft_strtrim(s1, set);
-    printf("%s", ans);
-    free(ans);
-    return (0);
-}
+// int main(void)
+// {
+//     char *s1 = "aa12bb12";
+//     char *set = "12";
+//     char *ans = ft_strtrim(s1, set);
+//     printf("%s", ans);
+//     free(ans);
+//     return (0);
+// }

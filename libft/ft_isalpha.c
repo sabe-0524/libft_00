@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 12:21:52 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/16 19:02:06 by sabe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalpha(int c)
@@ -8,10 +20,10 @@ int	ft_isalpha(int c)
 		return (0);
 }
 
-/*#include <stdio.h>
-int	main(void)
-{
-	int	num = ft_isalpha('g');
-	printf("%d", num);
-	return (0);
-}*/
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int	num = ft_isalpha('g');
+// 	printf("%d", num);
+// 	return (0);
+// }

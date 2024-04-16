@@ -1,20 +1,26 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 12:20:19 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/16 20:38:04 by sabe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    *ft_calloc(int count, int size)
+#include "libft.h"
+
+void    *ft_calloc(size_t count, size_t size)
 {
     void    *buf;
-    void    *ans;
-    int i;
+    size_t i;
 
     i = 0;
     buf = malloc(size * count);
-    if (buf == NULL)
+    if (!buf)
         return (NULL);
-    while (i < count)
-    {
-        buf = 0;
-        buf += size;
-        count++;
-    }
-    return (ans);
+    ft_memset(buf, 0, size * count);
+    return (buf);
 }

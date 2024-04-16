@@ -1,22 +1,41 @@
-int ft_strlen(char *str)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 12:42:11 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/16 19:13:19 by sabe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    while (str[i] != 0)
-        i++;
-    return (i);
-}
+#include "libft.h"
 
 char    *ft_strdup(const char *str)
 {
-    char    *ans;
-    int i;
+    int		i;
+    char	*ans;
 
-    i = -1;
-    ans = malloc(sizeof(char) * (ft_strlen(str) + 1));
-    while (str[i++] != 0)
-        ans[i] = str[i];
-    ans[i] = 0;
-    return (ans);
+	i = 0;
+	ans = (char *) malloc (sizeof(char) * (ft_strlen(str) + 1));
+    if (!ans)
+        return (NULL);
+	while (str[i] != '\0')
+	{
+		ans[i] = str[i];
+		i++;
+	}
+	ans[i] = '\0';
+	return (ans);
 }
+
+// #include <stdio.h>
+// int main(void)
+// {
+//     char    *str = "";
+//     char    *ans = ft_strdup(str);
+//     printf("%s", ans);
+//     free(ans);
+//     return (0);
+// }

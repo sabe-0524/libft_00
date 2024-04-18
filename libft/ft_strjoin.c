@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:43:04 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 18:41:02 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/18 14:52:48 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ char    *ft_strjoin(char const *s1, char const *s2)
     return (ans);
 }
 
-#include <stdio.h>
-int main(void)
-{
-    char *ans;
-    char s1[] = "abcd";
-    char s2[] = "efg";
-    ans = ft_strjoin(s1, s2);
-    printf("%s\n", ans);
-    free(ans);
-    return (0);
-}
+// #include <stdio.h>
+// int main(void)
+// {
+//     char *ans;
+//     char s1[] = "abcd";
+//     char s2[] = "efg";
+//     ans = ft_strjoin(s1, s2);
+//     printf("%s\n", ans);
+//     free(ans);
+//     return (0);
+// }

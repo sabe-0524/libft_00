@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:20:19 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/18 15:44:09 by sabe             ###   ########.fr       */
+/*   Created: 2024/04/18 12:10:02 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/18 12:14:43 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_calloc(size_t count, size_t size)
+t_list *ft_lstlast(t_list *lst)
 {
-    void    *buf;
-    buf = malloc(size * count);
-    if (!buf)
-        return (NULL);
-    ft_bzero(buf, size * count);
-    return (buf);
+  if (lst == NULL)
+    return (NULL);
+  while (lst -> next != NULL)
+    lst = lst -> next;
+  return (lst);
 }
-
-// int main(void)
-// {
-//     char    *ans;
-
-//     ans = (char *)ft_calloc(5, 5);
-//     free(ans);
-//     return (0);
-// }
-
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q a.out");
-// }

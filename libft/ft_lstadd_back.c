@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:20:19 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/18 15:44:09 by sabe             ###   ########.fr       */
+/*   Created: 2024/04/18 12:19:44 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/18 12:33:51 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_calloc(size_t count, size_t size)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
-    void    *buf;
-    buf = malloc(size * count);
-    if (!buf)
-        return (NULL);
-    ft_bzero(buf, size * count);
-    return (buf);
+  t_list  *lst_sub;
+
+  if (lst == NULL || new == NULL)
+    return ;
+  if (*lst == NULL)
+  {
+    *lst = new;
+    return ;
+  }
+  lst_sub = *lst;
+  while (lst_sub -> next != NULL)
+    lst_sub = lst_sub -> next;
+  if (new != NULL)
+    lst_sub -> next = new;
 }
-
-// int main(void)
-// {
-//     char    *ans;
-
-//     ans = (char *)ft_calloc(5, 5);
-//     free(ans);
-//     return (0);
-// }
-
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q a.out");
-// }

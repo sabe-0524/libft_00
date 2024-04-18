@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:20:19 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/18 15:44:09 by sabe             ###   ########.fr       */
+/*   Created: 2024/04/18 11:36:55 by sabe              #+#    #+#             */
+/*   Updated: 2024/04/18 11:41:22 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_calloc(size_t count, size_t size)
+t_list  *ft_lstnew(void *content)
 {
-    void    *buf;
-    buf = malloc(size * count);
-    if (!buf)
-        return (NULL);
-    ft_bzero(buf, size * count);
-    return (buf);
+  t_list  *new_node;
+
+  new_node = malloc(sizeof(t_list));
+  if (!new_node)
+    return (NULL);
+  new_node -> content = content;
+  new_node -> next = NULL;
+  return (new_node);
 }
-
-// int main(void)
-// {
-//     char    *ans;
-
-//     ans = (char *)ft_calloc(5, 5);
-//     free(ans);
-//     return (0);
-// }
-
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q a.out");
-// }

@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:37:41 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 19:20:19 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/18 15:48:09 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,8 @@ void    *ft_memcpy(void *buf1, const void *buf2, size_t n)
 
     ptr1 = (unsigned char *)buf1;
     ptr2 = (unsigned char *)buf2;
-    while (n > 0)
-    {
-        *ptr1 = *ptr2;
-        ptr1++;
-        ptr2++;
-        n--;
-    }
+    while (n-- > 0)
+        *ptr1++ = *ptr2++;
     return (buf1);
 }
 

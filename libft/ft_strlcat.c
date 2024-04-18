@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:43:09 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 18:40:44 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/18 14:59:31 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,41 @@ size_t ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
     dest[i] = 0;
     return (j + ft_strlen(src));
 }
+
+// char	*ft_strncpy(char *dest, char *src, int n)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < n && src[i] != '\0')
+// 	{
+// 		dest[i] = src[i];
+// 		i++;
+// 	}
+// 	while (i < n)
+// 	{
+// 		dest[i] = '\0';
+// 		i++;
+// 	}
+// 	return (dest);
+// }
+
+// size_t ft_strlcat(char *dest, const char *src, size_t size)
+// {
+//     size_t dest_len = ft_strlen(dest);
+//     size_t src_len = ft_strlen(src);
+//     size_t total_len = dest_len + src_len;
+    
+//     if (size <= dest_len)
+//         return total_len; // dest のサイズが size 以下の場合は dest の長さと src の長さを返す
+    
+//     size_t copy_len = size - dest_len - 1; // コピーする文字列の最大長（null 終端文字を考慮するため -1）
+//     ft_strncpy(dest + dest_len, src, copy_len); // dest の末尾からコピーを開始
+//     dest[dest_len + copy_len] = '\0'; // dest の末尾に null 終端文字を追加
+    
+//     return total_len; // 結果の文字列の長さを返す
+// }
+
 
 // #include <stdio.h>
 // #include <string.h>

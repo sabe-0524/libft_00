@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:49:57 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/18 15:14:49 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 22:10:16 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	unsigned char	u1;
-	unsigned char	u2;
 
 	i = 0;
+	if ((s1 == NULL || s2 == NULL) && n == 0)
+		return (0);
 	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
 	{
-		u1 = s1[i];
-		u2 = s2[i];
-		if (u1 != u2)
-			return (u1 - u2);
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
 		i++;
 	}
 	return (0);
@@ -37,7 +35,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // {
 // 	char	*s1 = NULL;
 // 	char	*s2 = NULL;
-// 	// printf("%d", ft_strncmp(s1,s2,0));
-// 	printf("%d", strncmp(s1, s2, 0));
+// 	printf("%d\n", ft_strncmp(s1,s2,1));
+// 	printf("%d\n", strncmp(s1, s2, 1));
 // 	return (0);
 // }

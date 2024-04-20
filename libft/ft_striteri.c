@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:29:54 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 18:40:23 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 14:07:27 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
   unsigned int   i;
 
+  if (!s || !f)
+    return ;
   i = 0;
   while (s[i] != 0)
   {
-    f(i, s);
+    f(i, &s[i]);
     i++;
   }
 }

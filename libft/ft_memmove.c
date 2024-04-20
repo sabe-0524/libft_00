@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:38:05 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 19:55:47 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 14:37:44 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void    *ft_memmove(void *buf1, const void *buf2, size_t n)
 {
-    if (n == 0 && (buf1 == NULL || buf2 == NULL))
-        return (NULL);
     if (buf1 == 0 && buf2 == 0)
         return (NULL);
     unsigned char *ptr1;

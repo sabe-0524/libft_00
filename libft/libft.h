@@ -15,7 +15,7 @@ int ft_abs(int nb);
 // libc
 int					ft_atoi(const char *str);
 void				ft_bzero(void *b, size_t len);
-void				*ft_calloc(size_t n, size_t size);
+void				*ft_calloc(size_t count, size_t size);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -45,7 +45,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 int					word_count(char const *s, char c);
 int					len_to_delimiter(char *s, char c);
-char				**ft_split(char *s, char c);
+char				**ft_split(char const *s, char c);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));

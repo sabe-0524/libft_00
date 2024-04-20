@@ -6,28 +6,48 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:43:09 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/18 14:59:31 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 21:38:03 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
-{
-    int i;
-    int j;
+// size_t ft_strlcat(char *dest, const char *src, size_t size)
+// {
+//     size_t i;
+//     size_t j;
 
-    j = ft_strlen(dest);
-    i = ft_strlen(dest) - 1;
-    if (j > size)
-        return (size + ft_strlen(src));
-    while (++i < size - 1 && *src != 0)
-    {
-        dest[i] = *src;
-        src++;
-    }
-    dest[i] = 0;
-    return (j + ft_strlen(src));
+//     j = ft_strlen(dest);
+//     i = ft_strlen(dest) - 1;
+//     if (j > size)
+//         return (size + ft_strlen(src));
+//     while (++i < size - 1 && *src != 0)
+//     {
+//         dest[i] = *src;
+//         src++;
+//     }
+//     dest[i] = 0;
+//     return (j + ft_strlen(src));
+// }
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+    if (dest == NULL && size == 0)
+        return (ft_strlen(src));
+	len = ft_strlen(dest);
+	if (size <= len)
+		return (size + ft_strlen(src));
+	while ((i < size - len - 1) && src[i] != '\0')
+	{
+		dest[len + i] = src[i];
+		i++;
+	}
+	dest[len + i] = '\0';
+	return (len + ft_strlen(src));
 }
 
 // char	*ft_strncpy(char *dest, char *src, int n)
@@ -70,9 +90,20 @@ size_t ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 
 // int main(void)
 // {
-//     char    dest[9] = "abcde";
-//     char    *src = "fgh";
-//     ft_strlcat(dest, src, 9);
-//     printf("%s", dest);
+//   char *dst1 = calloc(100, sizeof(char));
+// 	char *dst2 = calloc(100, sizeof(char));
+// 	char *src1 = calloc(100, sizeof(char));
+// 	char *src2 = calloc(100, sizeof(char));
+//   for (int i = 0; i < 99; i++)
+// 	{
+// 		src1[i] = i + 1;
+// 		src2[i] = i + 1;
+// 	}
+// 	dst1 = NULL;
+// 	dst2 = NULL;
+//     printf("%lu\n", ft_strlcat(dst1, src1, 0));
+//     // printf("%s\n", dst1);
+// 		printf("%lu\n", strlcat(dst2, src2, 0));
+// 		// printf("%s\n", dst2);
 //     return (0);
 // }

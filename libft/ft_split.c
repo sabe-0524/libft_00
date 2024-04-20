@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:39:52 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 13:24:58 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 16:00:54 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	judge(char c, char c_set)
 	return (0);
 }
 
-int	count_words(char *str, char c)
+int	count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -37,7 +37,7 @@ int	count_words(char *str, char c)
 	return (count);
 }
 
-int	count_len(char *str, char c, int i)
+int	count_len(char const *str, char c, int i)
 {
 	int	count;
 
@@ -50,7 +50,7 @@ int	count_len(char *str, char c, int i)
 	return (count);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char const *str, char c)
 {
 	char	**array;
 	int		i;
@@ -60,17 +60,21 @@ char	**ft_split(char *str, char c)
 	i = 0;
 	index = 0;
 	array = malloc(sizeof(char *) * (count_words(str, c) + 1));
+	if (!array)
+  	return NULL;
 	while (str[i] != '\0' && index < count_words(str, c))
 	{
 		while (judge(str[i], c) == 1 && str[i] != '\0')
 			i++;
 		array[index] = malloc(sizeof(char) * (count_len(str, c, i) + 1));
+		if (!array[index])
+    	return NULL;
 		j = 0;
 		while (judge(str[i], c) == 0 && str[i] != '\0')
-			array[index][j++] = str[i++];
+			array[index][j++] = (char)str[i++];
 		array[index][j] = '\0';
 		index++;
 	}
-	array[index] = 0;
+	array[index] = NULL;
 	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: sabe <sabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:40:08 by sabe              #+#    #+#             */
-/*   Updated: 2024/04/16 19:02:19 by sabe             ###   ########.fr       */
+/*   Updated: 2024/04/20 15:29:36 by sabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char    *ft_strchr(const char *str, int c)
 {
     while (*str != 0)
     {
-        if (*str == c)
+        if (*str == (char)c)
             return ((char *)str);
         str++;
     }
     if (c == 0)
         return ((char *)str);
-    return (0);
+    return (NULL);
 }
